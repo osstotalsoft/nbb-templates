@@ -1,6 +1,6 @@
 <Project>
   <PropertyGroup Label="Package Versions">
-    <NBBPackagesVersion>4.2.6</NBBPackagesVersion>
+    <NBBPackagesVersion>4.2.9</NBBPackagesVersion>
     <NewtonsoftJsonPackageVersion>11.0.2</NewtonsoftJsonPackageVersion>
     <MediatRPackageVersion>4.1.0</MediatRPackageVersion>
     <ScrutorPackageVersion>3.1.0</ScrutorPackageVersion>

@@ -2,9 +2,7 @@
   <PropertyGroup Label="Development">
     <Develop>true</Develop>
 
-    <LocalNBB>true</LocalNBB>
-    <NBBPackagesVersion>3.4.31</NBBPackagesVersion>
-
+    
     <NatsMessagingTransport>true</NatsMessagingTransport>
     <KafkaMessagingTransport>false</KafkaMessagingTransport>
     <SqlLogging>false</SqlLogging>
