@@ -6,8 +6,8 @@
   <Import Project="dependencies.props" />
   
   <PropertyGroup>
-    <TargetFramework>netcoreapp3.1</TargetFramework>
-    <DockerTargetOS>Linux</DockerTargetOS>
+    <TargetFramework>net5.0</TargetFramework>
+    <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
     <LangVersion>latest</LangVersion>
     <OutputType Condition="'$(AspNetApp)' == 'false'">Exe</OutputType>
   </PropertyGroup>
@@ -43,22 +43,22 @@
     <PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="$(MicrosoftExtensionsPackagesVersion)" />
     <PackageReference Include="Microsoft.Extensions.Logging" Version="$(MicrosoftExtensionsPackagesVersion)" />
     <PackageReference Include="Microsoft.Extensions.Hosting" Version="$(MicrosoftExtensionsPackagesVersion)" />
-    <PackageReference Include="Microsoft.AspNetCore.Diagnostics.HealthChecks" Version="$(HealthChecksVersion)" Condition="'$(HealthCheck)' == 'true'" />
     <PackageReference Include="AspNetCore.HealthChecks.UI" Version="2.2.35" Condition="'$(HealthCheck)' == 'true'" />
-    <PackageReference Include="System.Data.SqlClient" Version="4.8.1" Condition="'$(HealthCheck)' == 'true'" />
-    <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.9.5" />
+    <PackageReference Include="System.Data.SqlClient" Version="4.8.2"  Condition="'$(HealthCheck)' == 'true'" />
+    <PackageReference Include="Microsoft.Data.SqlClient" Version="2.1.0"  Condition="'$(HealthCheck)' == 'true'" />
+    <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.10.9" />
     <PackageReference Include="Serilog.AspNetCore" Version="$(SerilogAspNetCorePackageVersion)" Condition="'$(AspNetApp)' == 'true'" />
     <PackageReference Include="Serilog.Extensions.Logging" Version="$(SerilogExtensionsLoggingPackageVersion)" />
     <PackageReference Include="Serilog.Sinks.Console" Version="3.1.2-dev-00777" />
     <PackageReference Include="Serilog.Sinks.MSSqlServer" Version="$(SerilogSinksMSSqlServerPackageVersion)" Condition="'$(SqlLogging)' == 'true'" />
-    <PackageReference Include="MediatR.Extensions.Microsoft.DependencyInjection" Version="4.1.0" />
+    <PackageReference Include="MediatR.Extensions.Microsoft.DependencyInjection" Version="$(MediatRPackageVersion)" />
     <PackageReference Include="Jaeger" Version="$(JaegerPackageVersion)" Condition="'$(OpenTracing)' == 'true'" />
+    <PackageReference Include="Jaeger.Senders.Thrift" Version="$(JaegerPackageVersion)" Condition="'$(OpenTracing)' == 'true'" />
     <PackageReference Include="OpenTracing.Contrib.NetCore" Version="$(OpenTracingContribPackageVersion)" Condition="'$(OpenTracing)' == 'true'" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="NBB.Messaging.Host" Version="$(NBBPackagesVersion)" />
     <PackageReference Include="NBB.Messaging.Nats" Version="$(NBBPackagesVersion)" Condition="'$(NatsMessagingTransport)' == 'true'" />
-    <PackageReference Include="NBB.Messaging.Kafka" Version="$(NBBPackagesVersion)" Condition="'$(KafkaMessagingTransport)' == 'true'" />
     
     <PackageReference Include="NBB.Correlation" Version="$(NBBPackagesVersion)" />
     <PackageReference Include="NBB.Correlation.Serilog" Version="$(NBBPackagesVersion)" />

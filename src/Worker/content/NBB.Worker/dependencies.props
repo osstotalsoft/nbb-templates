@@ -1,22 +1,21 @@
 <Project>
   <PropertyGroup Label="Package Versions">
-    <NBBPackagesVersion>4.2.9</NBBPackagesVersion>
-    <NewtonsoftJsonPackageVersion>11.0.2</NewtonsoftJsonPackageVersion>
-    <MediatRPackageVersion>4.1.0</MediatRPackageVersion>
-    <ScrutorPackageVersion>3.1.0</ScrutorPackageVersion>
-    <MoqPackageVersion>4.8.2</MoqPackageVersion>
-    <XunitPackageVersion>2.4.0</XunitPackageVersion>
-    <XunitRunnerVisualStudioPackageVersion>2.4.0</XunitRunnerVisualStudioPackageVersion>
-    <MicrosoftExtensionsPackagesVersion>3.1.0</MicrosoftExtensionsPackagesVersion>
-    <MicrosoftCSharpPackageVersion>4.5.0</MicrosoftCSharpPackageVersion>
-    <SerilogPackageVersion>2.7.1</SerilogPackageVersion>
-    <SerilogExtensionsLoggingPackageVersion>2.0.2</SerilogExtensionsLoggingPackageVersion>
-    <SerilogSinksMSSqlServerPackageVersion>5.1.2</SerilogSinksMSSqlServerPackageVersion>
-    <SerilogAspNetCorePackageVersion>2.1.1</SerilogAspNetCorePackageVersion>
-    <OpenTracingPackageVersion>0.12.0</OpenTracingPackageVersion>
-    <OpenTracingContribPackageVersion>0.5.0</OpenTracingContribPackageVersion>
-    <JaegerPackageVersion>0.3.2</JaegerPackageVersion>
-    <NBBProcessManagerRuntime>4.1.3</NBBProcessManagerRuntime>
+    <NBBPackagesVersion>5.0.1</NBBPackagesVersion>
+    <NewtonsoftJsonPackageVersion>12.0.3</NewtonsoftJsonPackageVersion>
+    <MediatRPackageVersion>9.0.0</MediatRPackageVersion>
+    <ScrutorPackageVersion>3.3.0</ScrutorPackageVersion>
+    <MoqPackageVersion>4.15.2</MoqPackageVersion>
+    <XunitPackageVersion>2.4.1</XunitPackageVersion>
+    <XunitRunnerVisualStudioPackageVersion>2.4.3</XunitRunnerVisualStudioPackageVersion>
+    <MicrosoftExtensionsPackagesVersion>5.0.0</MicrosoftExtensionsPackagesVersion>
+    <MicrosoftCSharpPackageVersion>4.7.0</MicrosoftCSharpPackageVersion>
+    <SerilogPackageVersion>2.10.0</SerilogPackageVersion>
+    <SerilogExtensionsLoggingPackageVersion>3.0.1</SerilogExtensionsLoggingPackageVersion>
+    <SerilogSinksMSSqlServerPackageVersion>5.6.0</SerilogSinksMSSqlServerPackageVersion>
+    <SerilogAspNetCorePackageVersion>3.4.0</SerilogAspNetCorePackageVersion>
+    <OpenTracingPackageVersion>0.12.1</OpenTracingPackageVersion>
+    <OpenTracingContribPackageVersion>0.7.1</OpenTracingContribPackageVersion>
+    <JaegerPackageVersion>0.4.2</JaegerPackageVersion>
     <HealthChecksVersion>2.2.0</HealthChecksVersion>
   </PropertyGroup>
 </Project>
