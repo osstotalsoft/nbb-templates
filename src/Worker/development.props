@@ -4,7 +4,6 @@
 
     
     <NatsMessagingTransport>true</NatsMessagingTransport>
-    <KafkaMessagingTransport>false</KafkaMessagingTransport>
     <SqlLogging>false</SqlLogging>
     <HealthCheck>false</HealthCheck>
     <Resiliency>true</Resiliency>
@@ -14,7 +13,6 @@
 
     <ConditionalCompilationSymbols Condition="$(HealthCheck)">$(ConditionalCompilationSymbols);HealthCheck</ConditionalCompilationSymbols>
     <ConditionalCompilationSymbols Condition="$(NatsMessagingTransport)">$(ConditionalCompilationSymbols);NatsMessagingTransport</ConditionalCompilationSymbols>
-    <ConditionalCompilationSymbols Condition="$(KafkaMessagingTransport)">$(ConditionalCompilationSymbols);KafkaMessagingTransport</ConditionalCompilationSymbols>
     <ConditionalCompilationSymbols Condition="$(AspNetApp)">$(ConditionalCompilationSymbols);AspNetApp</ConditionalCompilationSymbols>
     <ConditionalCompilationSymbols Condition="$(SqlLogging)">$(ConditionalCompilationSymbols);SqlLogging</ConditionalCompilationSymbols>
     <ConditionalCompilationSymbols Condition="$(Resiliency)">$(ConditionalCompilationSymbols);Resiliency</ConditionalCompilationSymbols>

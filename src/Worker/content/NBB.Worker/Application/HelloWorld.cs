@@ -15,7 +15,7 @@ namespace NBB.Worker.Application
 
         public class Handler : IRequestHandler<Command>
         {
-            public Task Handle(Command request, CancellationToken cancellationToken)
+            public Task<Unit> Handle(Command request, CancellationToken cancellationToken)
             {
                 throw new NotImplementedException();
             }

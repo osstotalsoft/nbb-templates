@@ -120,22 +120,14 @@
           {
             "choice": "Nats",
             "description": "Use Nats Messaging transport."
-          },
-          {
-            "choice": "Kafka",
-            "description": "Use NATS Messaging transport."
           }
         ],
         "description": "Choose the messaging transport.",
-        "isRequired":  true
+        "defaultValue": "Nats"
       },
       "NatsMessagingTransport": {
         "type": "computed",
         "value": "(MessagingTransport == \"Nats\")"
-      },
-      "KafkaMessagingTransport": {
-        "type": "computed",
-        "value": "(MessagingTransport == \"Kafka\")"
       },
       "SkipRestore": {
         "type": "parameter",

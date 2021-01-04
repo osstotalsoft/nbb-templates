@@ -20,11 +20,12 @@ using OpenTracing.Noop;
 using Jaeger;
 using Jaeger.Samplers;
 using Jaeger.Reporters;
-using Jaeger.Senders;
+using Jaeger.Senders.Thrift;
+
+
+
 using OpenTracing.Util;
 #endif
-#elif KafkaMessagingTransport
-using NBB.Messaging.Kafka;
 #endif
 #if (Resiliency)
 using NBB.Resiliency;
@@ -48,8 +49,6 @@ namespace NBB.Worker
             // Messaging
 #if NatsMessagingTransport
             services.AddNatsMessaging();
-#elif KafkaMessagingTransport
-            services.AddKafkaMessaging();
 #endif
 
 
