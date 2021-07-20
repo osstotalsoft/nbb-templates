@@ -54,15 +54,13 @@ namespace NBB.Worker
 #if (AspNetApp)
         public static IWebHost BuildWebHost(string[] args) =>
             WebHost.CreateDefaultBuilder(args)
-                .ConfigureAppConfiguration(cb => BuildConfiguration(cb))
                 .ConfigureLogging((hostBuilderContext, _) => ConfigureSerilog(hostBuilderContext.Configuration))
                 .UseStartup<Startup>()
                 .UseSerilog()
                 .Build();
 #else
         public static IHost BuildConsoleHost(string[] args) =>
-            new HostBuilder()
-                .ConfigureAppConfiguration(cb => BuildConfiguration(cb))
+            Host.CreateDefaultBuilder()
                 .ConfigureLogging((hostBuilderContext, loggingBuilder) =>
                 {
                     ConfigureSerilog(hostBuilderContext.Configuration);
@@ -72,20 +70,6 @@ namespace NBB.Worker
                 .UseConsoleLifetime()
                 .Build();
 #endif
-
-        private static void BuildConfiguration(IConfigurationBuilder configurationBuilder)
-        {
-            Configuration = configurationBuilder
-                .SetBasePath(Directory.GetCurrentDirectory())
-                .AddJsonFile("appsettings.json", optional: true, reloadOnChange: true)
-#if (AspNetApp)
-                .AddJsonFile(
-                    $"appsettings.{Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT") ?? "Production"}.json",
-                    optional: true, reloadOnChange: true)
-#endif
-                .AddEnvironmentVariables()
-                .Build();
-        }
 
         private static void ConfigureSerilog(IConfiguration cofiguration)
         {
