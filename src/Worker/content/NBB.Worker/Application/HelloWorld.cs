@@ -1,5 +1,4 @@
 ﻿using MediatR;
-using NBB.Core.Abstractions;
 using System;
 using System.Threading;
 using System.Threading.Tasks;
@@ -8,10 +7,7 @@ namespace NBB.Worker.Application
 {
     public class HelloWorld
     {
-        public class Command : ICommand, IRequest
-        {
-
-        }
+        public record Command :  IRequest;
 
         public class Handler : IRequestHandler<Command>
         {
