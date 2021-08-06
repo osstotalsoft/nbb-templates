@@ -9,10 +9,10 @@ The template can be used to create a new NBB Worker project in C# or F# with the
   * MediatR (C#) 
   * NBB.Application.Mediator.FSharp (F#)
 
-## Instalation
+## Installation
 
 The template can be installed using the `dotnet new` tool
-```cmd
+```console
 dotnet new -i NBB.Worker::*
 ```
 
@@ -29,16 +29,16 @@ dotnet new nbbworker -lang F# -n MyTest.Worker
 ### Additional options
 The following options are vailable to customize the generated project:
 
-|Flag | Description | Type | Default
-|-----|-------------|--
-| -t\|--title        |                     The name of the project which determines the assembly product name. | string - Optional | Project Title
-| -d\|--description  |                     A description of the project which determines the assembly description. | string - Optional | Project Description
-| -au\|--param:author|                     The name of the author of the project which determines the assembly author, company and copyright information. | string - Optional| Project Author
-| -hc\|--health-check|                     A health-check endpoint that returns the status of this service and its dependencies, giving an indication of its health.|bool - Optional|true
-| -r\|--resiliency   |                     Adds default resiliency policy to the messaging host | bool - Optional | true
+|Flag | Description | Type | Default |
+|-----|-------------|------|---------|
+| -t\|--title        |                     The name of the project which determines the assembly product name. | string - Optional | Project Title |
+| -d\|--description  |                     A description of the project which determines the assembly description. | string - Optional | Project Description |
+| -au\|--param:author|                     The name of the author of the project which determines the assembly author, company and copyright information. | st ring - Optional| Project Author|
+| -hc\|--health-check|                     A health-check endpoint that returns the status of this service and its dependencies, giving an indication of its health.|bool - Optional|true|
+| -r\|--resiliency   |                     Adds default resiliency policy to the messaging host | bool - Optional | true|
 | -slcs\|--sql-logging-connection-string|  The connection string to the sql server database.|string - Optional| 
-| -ot\|--open-tracing|                     Add Jaeger / OpenTracing support|bool - Optional| true
-| -nr\|--no-restore  |                     Skips the execution of 'dotnet restore' on project creation.|bool - Optional| false
+| -ot\|--open-tracing|                     Add Jaeger / OpenTracing support|bool - Optional| true|
+| -nr\|--no-restore  |                     Skips the execution of 'dotnet restore' on project creation.|bool - Optional| false|
 
 
 ## Development
