@@ -7,6 +7,13 @@
   </PropertyGroup>
   <!--#if (Develop)-->
   <Import Project="..\..\development.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DefineConstants>TRACE;$(ConditionalCompilationSymbols)</DefineConstants>
+  </PropertyGroup>
+  <ItemGroup>
+    <None Include=".template.config/**" />
+  </ItemGroup>
+  <!--#endif-->
   <PropertyGroup Label="Package">
     <Version>1.0.0</Version>
     <Authors>PROJECT-AUTHOR-XML</Authors>
@@ -15,10 +22,6 @@
     <Description>PROJECT-DESCRIPTION-XML</Description>
     <Copyright>Copyright © PROJECT-AUTHOR-XML. All rights Reserved</Copyright>
   </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
-    <DefineConstants>TRACE;$(ConditionalCompilationSymbols)</DefineConstants>
-  </PropertyGroup>
-  <!--#endif-->
   <ItemGroup>
     <Compile Include="Application\HelloWorld.fs" />
     <Compile Include="Application\Application.fs" />

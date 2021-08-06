@@ -1,10 +1,9 @@
 ﻿<Project>
   <PropertyGroup Label="Development">
     <Develop>true</Develop>
-
-    
+   
     <NatsMessagingTransport>true</NatsMessagingTransport>
-    <SqlLogging>true</SqlLogging>
+    <SqlLogging>false</SqlLogging>
     <HealthCheck>true</HealthCheck>
     <Resiliency>true</Resiliency>
     <OpenTracing>true</OpenTracing>
