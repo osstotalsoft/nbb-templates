@@ -19,7 +19,7 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Worker", "Worker", "{4E1B1517-534F-4FCC-AD08-E459AE7CDA35}"
 	ProjectSection(SolutionItems) = preProject
 		src\Worker\development.props = src\Worker\development.props
-		src\Worker\NBB.Worker.CSharp\NBB.Worker.nuspec = src\Worker\NBB.Worker.CSharp\NBB.Worker.nuspec
+		src\Worker\NBB.Worker.nuspec = src\Worker\NBB.Worker.nuspec
 		src\Worker\readme.md = src\Worker\readme.md
 	EndProjectSection
 EndProject
