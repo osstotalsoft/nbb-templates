@@ -1,4 +1,5 @@
-﻿#if HealthCheck
+﻿
+#if HealthCheck
 using System.Data.Common;
 using System.Data.SqlClient;
 

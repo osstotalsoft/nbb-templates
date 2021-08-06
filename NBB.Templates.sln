@@ -18,19 +18,34 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "UnitTest", "UnitTest", "{96
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Worker", "Worker", "{4E1B1517-534F-4FCC-AD08-E459AE7CDA35}"
 	ProjectSection(SolutionItems) = preProject
-		src\Worker\development.props = src\Worker\development.props
-		src\Worker\content\NBB.Worker\.template.config\dotnetcli.host.json = src\Worker\content\NBB.Worker\.template.config\dotnetcli.host.json
-		src\Worker\NBB.Worker.nuspec = src\Worker\NBB.Worker.nuspec
-		src\Worker\readme.md = src\Worker\readme.md
-		src\Worker\content\NBB.Worker\.template.config\template.json = src\Worker\content\NBB.Worker\.template.config\template.json
+		src\Worker\NBB.Worker.CSharp\readme.md = src\Worker\NBB.Worker.CSharp\readme.md
 	EndProjectSection
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NBB.Worker", "src\Worker\content\NBB.Worker\NBB.Worker.csproj", "{9D012A18-E862-466D-AEA3-09C225113528}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NBB.Worker", "src\Worker\NBB.Worker.CSharp\content\NBB.Worker\NBB.Worker.csproj", "{9D012A18-E862-466D-AEA3-09C225113528}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".github", ".github", "{F57779EB-9107-427D-A65C-5AA262C348E1}"
 	ProjectSection(SolutionItems) = preProject
 		.github\release-drafter.yml = .github\release-drafter.yml
 	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "CSharp", "CSharp", "{97569807-B246-4BA2-8469-9CF2F5292571}"
+	ProjectSection(SolutionItems) = preProject
+		src\Worker\NBB.Worker.CSharp\development.props = src\Worker\NBB.Worker.CSharp\development.props
+		src\Worker\NBB.Worker.CSharp\content\NBB.Worker\.template.config\dotnetcli.host.json = src\Worker\NBB.Worker.CSharp\content\NBB.Worker\.template.config\dotnetcli.host.json
+		src\Worker\NBB.Worker.CSharp\NBB.Worker.nuspec = src\Worker\NBB.Worker.CSharp\NBB.Worker.nuspec
+		src\Worker\NBB.Worker.CSharp\content\NBB.Worker\.template.config\template.json = src\Worker\NBB.Worker.CSharp\content\NBB.Worker\.template.config\template.json
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "FSharp", "FSharp", "{CD43E837-3005-4B2B-8F7D-40368931F95A}"
+	ProjectSection(SolutionItems) = preProject
+		src\Worker\NBB.Worker.FSharp\development.props = src\Worker\NBB.Worker.FSharp\development.props
+		src\Worker\NBB.Worker.CSharp\content\NBB.Worker\.template.config\dotnetcli.host.json = src\Worker\NBB.Worker.CSharp\content\NBB.Worker\.template.config\dotnetcli.host.json
+		src\Worker\NBB.Worker.FSharp\NBB.Worker.nuspec = src\Worker\NBB.Worker.FSharp\NBB.Worker.nuspec
+		src\Worker\NBB.Worker.FSharp\readme.md = src\Worker\NBB.Worker.FSharp\readme.md
+		src\Worker\NBB.Worker.FSharp\content\NBB.Worker\.template.config\template.json = src\Worker\NBB.Worker.FSharp\content\NBB.Worker\.template.config\template.json
+	EndProjectSection
+EndProject
+Project("{6EC3EE1D-3C4E-46DD-8F32-0CC8E7565705}") = "NBB.Worker", "src\Worker\NBB.Worker.FSharp\content\NBB.Worker\NBB.Worker.fsproj", "{2D0630A0-C84F-4AAC-B472-61B3390EFF8C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -46,6 +61,10 @@ Global
 		{9D012A18-E862-466D-AEA3-09C225113528}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9D012A18-E862-466D-AEA3-09C225113528}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9D012A18-E862-466D-AEA3-09C225113528}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2D0630A0-C84F-4AAC-B472-61B3390EFF8C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2D0630A0-C84F-4AAC-B472-61B3390EFF8C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2D0630A0-C84F-4AAC-B472-61B3390EFF8C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2D0630A0-C84F-4AAC-B472-61B3390EFF8C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -54,8 +73,11 @@ Global
 		{D6A39A09-A2CA-45EF-BCB3-2E14F63345EF} = {96D0B042-4C6E-4B6D-AE53-C335FEA0DDEA}
 		{96D0B042-4C6E-4B6D-AE53-C335FEA0DDEA} = {496EF727-9EBE-4FA3-8714-D51ADF8EF016}
 		{4E1B1517-534F-4FCC-AD08-E459AE7CDA35} = {496EF727-9EBE-4FA3-8714-D51ADF8EF016}
-		{9D012A18-E862-466D-AEA3-09C225113528} = {4E1B1517-534F-4FCC-AD08-E459AE7CDA35}
+		{9D012A18-E862-466D-AEA3-09C225113528} = {97569807-B246-4BA2-8469-9CF2F5292571}
 		{F57779EB-9107-427D-A65C-5AA262C348E1} = {EB7B0468-DE25-4350-80AD-50E7C4D09120}
+		{97569807-B246-4BA2-8469-9CF2F5292571} = {4E1B1517-534F-4FCC-AD08-E459AE7CDA35}
+		{CD43E837-3005-4B2B-8F7D-40368931F95A} = {4E1B1517-534F-4FCC-AD08-E459AE7CDA35}
+		{2D0630A0-C84F-4AAC-B472-61B3390EFF8C} = {CD43E837-3005-4B2B-8F7D-40368931F95A}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {23A42379-616A-43EF-99BC-803DF151F54E}

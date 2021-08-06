@@ -1,0 +1,69 @@
+﻿<Project>
+  <Sdk Name="Microsoft.NET.Sdk" Condition="'$(AspNetApp)' == 'false'" />
+  <Sdk Name="Microsoft.NET.Sdk.Web" Condition="'$(AspNetApp)' == 'true'" />
+  
+  <!-- remove to use dependecies.props defined at solution level-->
+  <Import Project="dependencies.props" />
+  
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+    <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
+    <LangVersion>latest</LangVersion>
+    <OutputType Condition="'$(AspNetApp)' == 'false'">Exe</OutputType>
+  </PropertyGroup>
+  <!--#if (Develop)-->
+  <Import Project="..\..\development.props" />
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DefineConstants>TRACE;$(ConditionalCompilationSymbols)</DefineConstants>
+  </PropertyGroup>
+  <!--#endif-->
+  <PropertyGroup Label="Package">
+    <Version>1.0.0</Version>
+    <Authors>PROJECT-AUTHOR-XML</Authors>
+    <Company>PROJECT-AUTHOR-XML</Company>
+    <Product>PROJECT-TITLE-XML</Product>
+    <Description>PROJECT-DESCRIPTION-XML</Description>
+    <Copyright>Copyright © PROJECT-AUTHOR-XML. All rights Reserved</Copyright>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Remove="PlaceholderTypes\**" />
+    <Content Remove="PlaceholderTypes\**" />
+    <EmbeddedResource Remove="PlaceholderTypes\**" />
+    <None Remove="PlaceholderTypes\**" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Remove="appsettings.json" />
+    <None Include="appsettings.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Extensions.Configuration.EnvironmentVariables" Version="$(MicrosoftExtensionsPackagesVersion)" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="$(MicrosoftExtensionsPackagesVersion)" />
+    <PackageReference Include="Microsoft.Extensions.Logging" Version="$(MicrosoftExtensionsPackagesVersion)" />
+    <PackageReference Include="Microsoft.Extensions.Hosting" Version="$(MicrosoftExtensionsPackagesVersion)" />
+    <PackageReference Include="AspNetCore.HealthChecks.UI" Version="2.2.35" Condition="'$(HealthCheck)' == 'true'" />
+    <PackageReference Include="System.Data.SqlClient" Version="4.8.2" Condition="'$(HealthCheck)' == 'true'" />
+    <PackageReference Include="Microsoft.Data.SqlClient" Version="2.1.0" Condition="'$(HealthCheck)' == 'true'" />
+    <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.10.9" />
+    <PackageReference Include="Serilog.AspNetCore" Version="$(SerilogAspNetCorePackageVersion)" Condition="'$(AspNetApp)' == 'true'" />
+    <PackageReference Include="Serilog.Extensions.Logging" Version="$(SerilogExtensionsLoggingPackageVersion)" />
+    <PackageReference Include="Serilog.Sinks.Console" Version="3.1.2-dev-00777" />
+    <PackageReference Include="Serilog.Sinks.MSSqlServer" Version="$(SerilogSinksMSSqlServerPackageVersion)" Condition="'$(SqlLogging)' == 'true'" />
+    <PackageReference Include="MediatR.Extensions.Microsoft.DependencyInjection" Version="$(MediatRPackageVersion)" />
+    <PackageReference Include="Jaeger" Version="$(JaegerPackageVersion)" Condition="'$(OpenTracing)' == 'true'" />
+    <PackageReference Include="Jaeger.Senders.Thrift" Version="$(JaegerPackageVersion)" Condition="'$(OpenTracing)' == 'true'" />
+    <PackageReference Include="OpenTracing.Contrib.NetCore" Version="$(OpenTracingContribPackageVersion)" Condition="'$(OpenTracing)' == 'true'" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="NBB.Messaging.Host" Version="$(NBBPackagesVersion)" />
+    <PackageReference Include="NBB.Messaging.Nats" Version="$(NBBPackagesVersion)" Condition="'$(NatsMessagingTransport)' == 'true'" />
+    
+    <PackageReference Include="NBB.Correlation" Version="$(NBBPackagesVersion)" />
+    <PackageReference Include="NBB.Correlation.Serilog" Version="$(NBBPackagesVersion)" />
+    <PackageReference Include="NBB.Messaging.Abstractions" Version="$(NBBPackagesVersion)" />
+    <PackageReference Include="NBB.Tools.Serilog.OpenTracingSink" Version="$(NBBPackagesVersion)" Condition="'$(OpenTracing)' == 'true'" />
+    <PackageReference Include="NBB.Messaging.OpenTracing" Version="$(NBBPackagesVersion)" Condition="'$(OpenTracing)' == 'true'" />
+  </ItemGroup>
+</Project>
