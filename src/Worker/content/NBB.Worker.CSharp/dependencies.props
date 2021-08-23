@@ -1,0 +1,21 @@
+<Project>
+  <PropertyGroup Label="Package Versions">
+    <NBBPackagesVersion>5.2.0</NBBPackagesVersion>
+    <NewtonsoftJsonPackageVersion>12.0.3</NewtonsoftJsonPackageVersion>
+    <MediatRPackageVersion>9.0.0</MediatRPackageVersion>
+    <ScrutorPackageVersion>3.3.0</ScrutorPackageVersion>
+    <MoqPackageVersion>4.15.2</MoqPackageVersion>
+    <XunitPackageVersion>2.4.1</XunitPackageVersion>
+    <XunitRunnerVisualStudioPackageVersion>2.4.3</XunitRunnerVisualStudioPackageVersion>
+    <MicrosoftExtensionsPackagesVersion>5.0.0</MicrosoftExtensionsPackagesVersion>
+    <MicrosoftCSharpPackageVersion>4.7.0</MicrosoftCSharpPackageVersion>
+    <SerilogPackageVersion>2.10.0</SerilogPackageVersion>
+    <SerilogExtensionsLoggingPackageVersion>3.0.1</SerilogExtensionsLoggingPackageVersion>
+    <SerilogSinksMSSqlServerPackageVersion>5.6.0</SerilogSinksMSSqlServerPackageVersion>
+    <SerilogAspNetCorePackageVersion>3.4.0</SerilogAspNetCorePackageVersion>
+    <OpenTracingPackageVersion>0.12.1</OpenTracingPackageVersion>
+    <OpenTracingContribPackageVersion>0.7.1</OpenTracingContribPackageVersion>
+    <JaegerPackageVersion>0.4.2</JaegerPackageVersion>
+    <HealthChecksVersion>2.2.0</HealthChecksVersion>
+  </PropertyGroup>
+</Project>

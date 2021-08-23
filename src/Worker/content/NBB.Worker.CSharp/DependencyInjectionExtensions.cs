@@ -21,14 +21,8 @@ using Jaeger;
 using Jaeger.Samplers;
 using Jaeger.Reporters;
 using Jaeger.Senders.Thrift;
-
-
-
 using OpenTracing.Util;
 #endif
-#endif
-#if (Resiliency)
-using NBB.Resiliency;
 #endif
 
 namespace NBB.Worker
@@ -39,8 +33,6 @@ namespace NBB.Worker
         {
             // MediatR 
             services.AddMediatR(typeof(HelloWorld.Command).Assembly);
-            services.AddScoped(typeof(IPipelineBehavior<,>), typeof(RequestPreProcessorBehavior<,>));
-            services.AddScoped(typeof(IPipelineBehavior<,>), typeof(RequestPostProcessorBehavior<,>));
             services.Scan(scan => scan.FromAssemblyOf<HelloWorld.Handler>()
                 .AddClasses(classes => classes.AssignableTo(typeof(IPipelineBehavior<,>)))
                 .AsImplementedInterfaces()
@@ -48,38 +40,34 @@ namespace NBB.Worker
 
             // Messaging
 #if NatsMessagingTransport
-            services.AddNatsMessaging();
+            services.AddMessageBus().AddNatsTransport(configuration);
 #endif
-
-
-#if (Resiliency)
-            services.AddResiliency();
-#endif    
+               
             services.Decorate<IMessageBusPublisher, SamplePublisherDecorator>();
 
 #if OpenTracing
             services.Decorate<IMessageBusPublisher, OpenTracingPublisherDecorator>();
 #endif
-            services.AddMessagingHost()
-                .AddSubscriberServices(selector =>
-                {
-                    selector
-                        .FromMediatRHandledCommands()
-                        .AddAllClasses();
-                })
-                .WithDefaultOptions()
-                .UsePipeline(builder => builder
-                    .UseCorrelationMiddleware()
-                    .UseExceptionHandlingMiddleware()
+            services.AddMessagingHost(hostBuilder => hostBuilder
+                .Configure(configBuilder => configBuilder
+                    .AddSubscriberServices(selector =>
+                    {
+                        selector
+                            .FromMediatRHandledCommands()
+                            .AddAllClasses();
+                    })
+                    .WithDefaultOptions()
+                    .UsePipeline(pipelineBuilder => pipelineBuilder
+                        .UseCorrelationMiddleware()
+                        .UseExceptionHandlingMiddleware()
 #if OpenTracing
-                    .UseMiddleware<OpenTracingMiddleware>()
+                        .UseMiddleware<OpenTracingMiddleware>()
 #endif
 #if Resiliency
-                    .UseDefaultResiliencyMiddleware()
+                        .UseDefaultResiliencyMiddleware()
 #endif
-                    .UseMediatRMiddleware()
-                    .UseMiddleware<SampleSubscriberPipelineMiddleware>()
-                );
+                        .UseMediatRMiddleware()
+                        .UseMiddleware<SampleSubscriberPipelineMiddleware>())));
 
 #if OpenTracing
             // OpenTracing
