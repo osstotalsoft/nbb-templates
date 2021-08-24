@@ -1,7 +1,5 @@
-﻿<Project>
-  <Sdk Name="Microsoft.NET.Sdk" Condition="'$(AspNetApp)' == 'false'" />
-  <Sdk Name="Microsoft.NET.Sdk.Web" Condition="'$(AspNetApp)' == 'true'" />
-  
+﻿<Project Sdk="Microsoft.NET.Sdk.Worker">
+
   <!-- remove to use dependecies.props defined at solution level-->
   <Import Project="dependencies.props" />
   
