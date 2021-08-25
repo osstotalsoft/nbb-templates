@@ -1,10 +1,8 @@
-﻿1. Pack with nuget NOT with dotnet
-	• nuget pack .\NBB.UnitTest.Template\NBB.UnitTest.nuspec
+﻿1. Pack with dotnet
+	• dotnet pack .src\NBB.UnitTest.Template\NBB.UnitTest.csproj
 2. To publish the package please visit the documentation for the "push" command
 	• dotnet nuget push
 		- https://docs.microsoft.com/en-us/dotnet/core/tools/dotnet-nuget-push?tabs=netcore21
-	• nuget push
-		- https://docs.microsoft.com/en-us/nuget/tools/cli-ref-push
 3. Install the package
 	• dotnet new -i NBB.UnitTest::* --nuget-source https://incbnuget.appservice.online/nuget
 4. Create new project from template
