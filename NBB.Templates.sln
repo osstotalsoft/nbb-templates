@@ -5,8 +5,11 @@ VisualStudioVersion = 16.0.29509.3
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{EB7B0468-DE25-4350-80AD-50E7C4D09120}"
 	ProjectSection(SolutionItems) = preProject
+		.gitignore = .gitignore
+		Build.ps1 = Build.ps1
 		Directory.Build.props = Directory.Build.props
 		NuGet.config = NuGet.config
+		Push.ps1 = Push.ps1
 		README.md = README.md
 	EndProjectSection
 EndProject
@@ -17,24 +20,23 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "UnitTest", "UnitTest", "{96D0B042-4C6E-4B6D-AE53-C335FEA0DDEA}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Worker", "Worker", "{4E1B1517-534F-4FCC-AD08-E459AE7CDA35}"
-	ProjectSection(SolutionItems) = preProject
-		src\Worker\development.props = src\Worker\development.props
-		src\Worker\NBB.Worker.nuspec = src\Worker\NBB.Worker.nuspec
-		src\Worker\readme.md = src\Worker\readme.md
-	EndProjectSection
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NBB.Worker", "src\Worker\content\NBB.Worker.CSharp\NBB.Worker.csproj", "{9D012A18-E862-466D-AEA3-09C225113528}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NBB.Worker", "src\Worker\templates\NBB.Worker.CSharp\NBB.Worker.csproj", "{9D012A18-E862-466D-AEA3-09C225113528}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".github", ".github", "{F57779EB-9107-427D-A65C-5AA262C348E1}"
 	ProjectSection(SolutionItems) = preProject
+		.github\workflows\ci.yml = .github\workflows\ci.yml
 		.github\release-drafter.yml = .github\release-drafter.yml
+		.github\workflows\release.yml = .github\workflows\release.yml
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "CSharp", "CSharp", "{DD4CBADE-EEFB-41C0-9675-64009C073898}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "FSharp", "FSharp", "{3572AD9C-8708-429A-BE57-CB6317B739A1}"
 EndProject
-Project("{6EC3EE1D-3C4E-46DD-8F32-0CC8E7565705}") = "NBB.Worker", "src\Worker\content\NBB.Worker.FSharp\NBB.Worker.fsproj", "{2D0630A0-C84F-4AAC-B472-61B3390EFF8C}"
+Project("{6EC3EE1D-3C4E-46DD-8F32-0CC8E7565705}") = "NBB.Worker", "src\Worker\templates\NBB.Worker.FSharp\NBB.Worker.fsproj", "{2D0630A0-C84F-4AAC-B472-61B3390EFF8C}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NBB.Worker", "src\Worker\NBB.Worker.csproj", "{7ADBAC72-B4B1-4F6D-BCAC-64FB268260BE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -54,6 +56,10 @@ Global
 		{2D0630A0-C84F-4AAC-B472-61B3390EFF8C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2D0630A0-C84F-4AAC-B472-61B3390EFF8C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2D0630A0-C84F-4AAC-B472-61B3390EFF8C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7ADBAC72-B4B1-4F6D-BCAC-64FB268260BE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7ADBAC72-B4B1-4F6D-BCAC-64FB268260BE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7ADBAC72-B4B1-4F6D-BCAC-64FB268260BE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7ADBAC72-B4B1-4F6D-BCAC-64FB268260BE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -67,6 +73,7 @@ Global
 		{DD4CBADE-EEFB-41C0-9675-64009C073898} = {4E1B1517-534F-4FCC-AD08-E459AE7CDA35}
 		{3572AD9C-8708-429A-BE57-CB6317B739A1} = {4E1B1517-534F-4FCC-AD08-E459AE7CDA35}
 		{2D0630A0-C84F-4AAC-B472-61B3390EFF8C} = {3572AD9C-8708-429A-BE57-CB6317B739A1}
+		{7ADBAC72-B4B1-4F6D-BCAC-64FB268260BE} = {4E1B1517-534F-4FCC-AD08-E459AE7CDA35}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {23A42379-616A-43EF-99BC-803DF151F54E}
