@@ -1,11 +1,16 @@
 ﻿<Project>
-  <PropertyGroup>
-    <Authors>TotalSoft</Authors>
-    <Company>TotalSoft</Company>
-    <PackageTags>totalsoft nbb</PackageTags>
-    <PublishRepositoryUrl>true</PublishRepositoryUrl>
-  </PropertyGroup>
-  <ItemGroup>
-        <PackageReference Include="MinVer" Version="2.5.0" PrivateAssets="All"/>
-  </ItemGroup>
+	<PropertyGroup>
+		<Authors>TotalSoft</Authors>
+		<Company>TotalSoft</Company>
+		<PackageTags>totalsoft nbb</PackageTags>
+		<PublishRepositoryUrl>true</PublishRepositoryUrl>
+		<PackageIcon>icon.png</PackageIcon>
+		<MinVerTagPrefix>v</MinVerTagPrefix>
+	</PropertyGroup>
+	<ItemGroup>
+		<PackageReference Include="MinVer" Version="2.5.0" PrivateAssets="All"/>
+	</ItemGroup>
+	<ItemGroup>
+		<None Include="$(MSBuildThisFileDirectory)\assets\img\icon.png" Pack="true" PackagePath=""/>
+	</ItemGroup>
 </Project>

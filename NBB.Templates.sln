@@ -25,9 +25,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NBB.Worker", "src\Worker\te
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".github", ".github", "{F57779EB-9107-427D-A65C-5AA262C348E1}"
 	ProjectSection(SolutionItems) = preProject
-		.github\workflows\ci.yml = .github\workflows\ci.yml
 		.github\release-drafter.yml = .github\release-drafter.yml
-		.github\workflows\release.yml = .github\workflows\release.yml
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "CSharp", "CSharp", "{DD4CBADE-EEFB-41C0-9675-64009C073898}"
@@ -37,6 +35,20 @@ EndProject
 Project("{6EC3EE1D-3C4E-46DD-8F32-0CC8E7565705}") = "NBB.Worker", "src\Worker\templates\NBB.Worker.FSharp\NBB.Worker.fsproj", "{2D0630A0-C84F-4AAC-B472-61B3390EFF8C}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NBB.Worker", "src\Worker\NBB.Worker.csproj", "{7ADBAC72-B4B1-4F6D-BCAC-64FB268260BE}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "assets", "assets", "{89AC1283-84B4-4E30-8CD2-73AC9A040F33}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "img", "img", "{8EC8227F-BB58-49DC-998C-903F9AB94A5E}"
+	ProjectSection(SolutionItems) = preProject
+		assets\img\icon.png = assets\img\icon.png
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "workflows", "workflows", "{281A5979-4E17-413B-B1DD-734D1425E5A0}"
+	ProjectSection(SolutionItems) = preProject
+		.github\workflows\ci.yml = .github\workflows\ci.yml
+		.github\workflows\release-drafter.yml = .github\workflows\release-drafter.yml
+		.github\workflows\release.yml = .github\workflows\release.yml
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -74,6 +86,8 @@ Global
 		{3572AD9C-8708-429A-BE57-CB6317B739A1} = {4E1B1517-534F-4FCC-AD08-E459AE7CDA35}
 		{2D0630A0-C84F-4AAC-B472-61B3390EFF8C} = {3572AD9C-8708-429A-BE57-CB6317B739A1}
 		{7ADBAC72-B4B1-4F6D-BCAC-64FB268260BE} = {4E1B1517-534F-4FCC-AD08-E459AE7CDA35}
+		{8EC8227F-BB58-49DC-998C-903F9AB94A5E} = {89AC1283-84B4-4E30-8CD2-73AC9A040F33}
+		{281A5979-4E17-413B-B1DD-734D1425E5A0} = {F57779EB-9107-427D-A65C-5AA262C348E1}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {23A42379-616A-43EF-99BC-803DF151F54E}
