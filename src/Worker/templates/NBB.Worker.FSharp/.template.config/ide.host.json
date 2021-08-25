@@ -1,0 +1,41 @@
+{
+  "$schema": "http://json.schemastore.org/vs-2017.3.host",
+  "symbolInfo": [
+    {
+      "id": "Title",
+      "isVisible": "true"
+    },
+    {
+      "id": "Description",
+      "isVisible": "true"
+    },
+    {
+      "id": "Author",
+      "isVisible": "true"
+    },
+    {
+      "id": "HealthCheck",
+      "isVisible": "true"
+    },
+    {
+      "id": "Resiliency",
+      "isVisible": "true"
+    },
+    {
+      "id": "SqlLogging",
+      "isVisible": "true"
+    },
+    {
+      "id": "SqlLoggingConnectionString",
+      "isVisible": "true"
+    },
+    {
+      "id": "OpenTracing",
+      "isVisible": "true"
+    },
+    {
+      "id": "MessagingTransport",
+      "isVisible": "true"
+    }
+  ]
+}
