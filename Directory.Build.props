@@ -1,15 +1,16 @@
 ﻿<Project>
-  <PropertyGroup>
-    <Version>$(GitVersion_NuGetVersion)</Version>
-    <Authors>Totalsoft</Authors>
-    <Company>Totalsoft</Company>
-    <PackageTags>totalsoft nbb</PackageTags>
-
-    <PublishRepositoryUrl>true</PublishRepositoryUrl>
-    <IncludeSymbols>true</IncludeSymbols>
-    <SymbolPackageFormat>snupkg</SymbolPackageFormat>
-  </PropertyGroup>
-  <ItemGroup>
-    <PackageReference Include="Microsoft.SourceLink.GitHub" Version="1.0.0" PrivateAssets="All"/>
-  </ItemGroup>
+	<PropertyGroup>
+		<Authors>TotalSoft</Authors>
+		<Company>TotalSoft</Company>
+		<PackageTags>totalsoft nbb</PackageTags>
+		<PublishRepositoryUrl>true</PublishRepositoryUrl>
+		<PackageIcon>icon.png</PackageIcon>
+		<MinVerTagPrefix>v</MinVerTagPrefix>
+	</PropertyGroup>
+	<ItemGroup>
+		<PackageReference Include="MinVer" Version="2.5.0" PrivateAssets="All"/>
+	</ItemGroup>
+	<ItemGroup>
+		<None Include="$(MSBuildThisFileDirectory)\assets\img\icon.png" Pack="true" PackagePath=""/>
+	</ItemGroup>
 </Project>

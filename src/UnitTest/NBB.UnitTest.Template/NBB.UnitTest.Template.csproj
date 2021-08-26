@@ -1,20 +1,20 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
-  
-  <PropertyGroup>
-    <TargetFramework>net5.0</TargetFramework>
-  </PropertyGroup>
-  
-  <ItemGroup>
-    <Compile Remove="Content\UnitTest1.cs" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Content Include="Content\.template.config\template.json" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <None Include="Content\UnitTest1.cs" />
-    <None Include="Content\NBB.UnitTestProject.csproj" />
-  </ItemGroup>
-
+	<PropertyGroup>
+		<PackageType>Template</PackageType>
+		<PackageId>NBB.UnitTest</PackageId>
+		<PackageVersion>1.0.0</PackageVersion>
+		<Title>NBB Unit Test Template</Title>
+		<Description>
+		  Template for generating a unit test project
+		</Description>
+		<IncludeContentInPack>true</IncludeContentInPack>
+		<IncludeBuildOutput>false</IncludeBuildOutput>
+		<ContentTargetFolders>content</ContentTargetFolders>
+		<TargetFramework>net5.0</TargetFramework>
+		<NoWarn>$(NoWarn);NU5128</NoWarn>
+	</PropertyGroup>
+	<ItemGroup>
+		<Content Include="template\**\*" Exclude="template\**\bin\**\*;template\**\obj\**\*" />
+		<Compile Remove="**\*" />
+	</ItemGroup>
 </Project>

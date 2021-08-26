@@ -3,7 +3,6 @@
   <Import Project="dependencies.props" />
   <PropertyGroup>
     <TargetFramework>net5.0</TargetFramework>
-    <ProjectGuid>{2d0630a0-c84f-4aac-b472-61b3390eff8c}</ProjectGuid>
   </PropertyGroup>
   <!--#if (Develop)-->
   <Import Project="..\..\development.props" />

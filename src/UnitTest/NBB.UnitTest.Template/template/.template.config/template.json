@@ -1,0 +1,13 @@
+﻿{
+  "author": "TotalSoft",
+  "classifications": [ "NBB", "Test", "xUnit" ],
+  "name": "NBB Unit Test Project",
+  "identity": "NBB.UnitTest",
+  "shortName": "nbbunittest",
+  "sourceName": "NBB.UnitTestProject",
+  "preferNameDirectory": true,
+  "tags": {
+    "language": "C#",
+    "type": "project"
+  }
+}
