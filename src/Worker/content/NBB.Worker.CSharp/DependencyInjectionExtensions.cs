@@ -1,15 +1,15 @@
 ﻿using MediatR;
-using MediatR.Pipeline;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using NBB.Worker.Messaging;
 using NBB.Worker.Application;
 using NBB.Messaging.Host;
-using NBB.Messaging.Host.Builder;
-using NBB.Messaging.Host.MessagingPipeline;
 using NBB.Messaging.Abstractions;
 #if NatsMessagingTransport
 using NBB.Messaging.Nats;
+#endif
+#if RusiMessagingTransport
+#endif
 using System.Reflection;
 using Microsoft.Extensions.Logging;
 #if OpenTracing
@@ -23,7 +23,7 @@ using Jaeger.Reporters;
 using Jaeger.Senders.Thrift;
 using OpenTracing.Util;
 #endif
-#endif
+
 
 namespace NBB.Worker
 {
@@ -42,13 +42,18 @@ namespace NBB.Worker
 #if NatsMessagingTransport
             services.AddMessageBus().AddNatsTransport(configuration);
 #endif
-               
+#if RusiMessagingTransport
+            services.AddMessageBus().AddRusiTransport(configuration);
+#endif            
+
             services.Decorate<IMessageBusPublisher, SamplePublisherDecorator>();
 
 #if OpenTracing
             services.Decorate<IMessageBusPublisher, OpenTracingPublisherDecorator>();
 #endif
-            services.AddMessagingHost(hostBuilder => hostBuilder
+            services.AddMessagingHost(
+                configuration, 
+                hostBuilder => hostBuilder
                 .Configure(configBuilder => configBuilder
                     .AddSubscriberServices(selector =>
                     {

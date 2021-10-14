@@ -38,6 +38,7 @@ The following options are vailable to customize the generated project:
 | -r\|--resiliency   |                     Adds default resiliency policy to the messaging host | bool - Optional | true|
 | -slcs\|--sql-logging-connection-string|  The connection string to the sql server database.|string - Optional| 
 | -ot\|--open-tracing|                     Add Jaeger / OpenTracing support|bool - Optional| true|
+| -mt\|--messaging-transport|			   Select the messaging transport (Rusi or Nats)|choice - Optional| Nats
 | -nr\|--no-restore  |                     Skips the execution of 'dotnet restore' on project creation.|bool - Optional| false|
 
 

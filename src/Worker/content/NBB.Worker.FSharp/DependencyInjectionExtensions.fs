@@ -5,8 +5,6 @@ open Microsoft.Extensions.Configuration
 open Microsoft.Extensions.DependencyInjection
 open NBB.Worker.Application
 open NBB.Messaging.Host
-open NBB.Messaging.Host.Builder
-open NBB.Messaging.Host.MessagingPipeline
 open NBB.Messaging.Abstractions
 open NBB.Application.Mediator.FSharp
 open NBB.Core.Effects
@@ -14,6 +12,11 @@ open System
 open NBB.Worker.Messaging
 #if NatsMessagingTransport
 open NBB.Messaging.Nats
+#endif
+#if RusiMessagingTransport
+open NBB.Messaging.Rusi
+#endif
+
 open System.Reflection
 open Microsoft.Extensions.Logging
 #if OpenTracing
@@ -27,7 +30,7 @@ open Jaeger.Reporters
 open Jaeger.Senders.Thrift
 open OpenTracing.Util
 #endif
-#endif
+
 
 type IServiceCollection with
     member this.AddWorkerServices(configuration: IConfiguration) =
@@ -43,6 +46,14 @@ type IServiceCollection with
         |> ignore
 #endif
 
+#if RusiMessagingTransport
+        this
+            .AddMessageBus()
+            .AddRusiTransport(configuration)
+        |> ignore
+#endif
+
+
         this.Decorate<IMessageBusPublisher, SamplePublisherDecorator>() |> ignore
 
 #if OpenTracing
@@ -50,7 +61,8 @@ type IServiceCollection with
         |> ignore
 #endif
         this.AddMessagingHost
-            (fun hostBuilder ->
+            (configuration,
+            fun hostBuilder ->
                 hostBuilder.Configure
                     (fun configBuilder ->
                         configBuilder

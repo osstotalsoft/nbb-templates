@@ -66,6 +66,7 @@
     <PackageReference Include="NBB.Messaging.Effects" Version="$(NBBPackagesVersion)" />
     <PackageReference Include="NBB.Messaging.Host" Version="$(NBBPackagesVersion)" />
     <PackageReference Include="NBB.Messaging.Nats" Version="$(NBBPackagesVersion)" Condition="'$(NatsMessagingTransport)' == 'true'" />
+	<PackageReference Include="NBB.Messaging.Rusi" Version="$(NBBPackagesVersion)" Condition="'$(RusiMessagingTransport)' == 'true'" />
     <PackageReference Include="NBB.Messaging.Abstractions" Version="$(NBBPackagesVersion)" />
     <PackageReference Include="NBB.Messaging.OpenTracing" Version="$(NBBPackagesVersion)" Condition="'$(OpenTracing)' == 'true'" />
     <PackageReference Include="NBB.Tools.Serilog.OpenTracingSink" Version="$(NBBPackagesVersion)" Condition="'$(OpenTracing)' == 'true'" />
