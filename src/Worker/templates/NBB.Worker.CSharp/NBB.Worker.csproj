@@ -1,15 +1,21 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk.Worker">
+
   <!-- remove to use dependecies.props defined at solution level-->
   <Import Project="dependencies.props" />
+  
   <PropertyGroup>
     <TargetFramework>net5.0</TargetFramework>
-    <ProjectGuid>{2d0630a0-c84f-4aac-b472-61b3390eff8c}</ProjectGuid>
+    <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
+    <LangVersion>latest</LangVersion>
+    <OutputType Condition="'$(AspNetApp)' == 'false'">Exe</OutputType>
   </PropertyGroup>
   <!--#if (Develop)-->
   <Import Project="..\..\development.props" />
+
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
     <DefineConstants>TRACE;$(ConditionalCompilationSymbols)</DefineConstants>
   </PropertyGroup>
+  
   <ItemGroup>
     <None Include=".template.config/**" />
   </ItemGroup>
@@ -23,28 +29,23 @@
     <Copyright>Copyright © PROJECT-AUTHOR-XML. All rights Reserved</Copyright>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="Application\HelloWorld.fs" />
-    <Compile Include="Application\Application.fs" />
-    <Compile Include="Messaging\SamplePublisherDecorator.fs" />
-    <Compile Include="Messaging\SampleSubscriberPipelineMiddleware.fs" />
-    <Compile Include="HealthChecks\DbConnectionHealthCheck.fs" />
-    <Compile Include="HealthChecks\GCInfoHealthCheck.fs" />
-    <Compile Include="HealthChecks\HealthCheckWriter.fs" />
-    <Compile Include="HealthChecks\SqlConnectionHealthCheck.fs" />
-    <None Include="dependencies.props" />
-    <Compile Include="DependencyInjectionExtensions.fs" />
-    <Compile Include="Startup.fs" />
-    <Compile Include="Program.fs" />
-
+    <Compile Remove="PlaceholderTypes\**" />
+    <Content Remove="PlaceholderTypes\**" />
+    <EmbeddedResource Remove="PlaceholderTypes\**" />
+    <None Remove="PlaceholderTypes\**" />
   </ItemGroup>
-
+  <ItemGroup>
+    <Content Remove="appsettings.json" />
+    <None Include="appsettings.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Microsoft.Extensions.Configuration.EnvironmentVariables" Version="$(MicrosoftExtensionsPackagesVersion)" />
     <PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="$(MicrosoftExtensionsPackagesVersion)" />
     <PackageReference Include="Microsoft.Extensions.Logging" Version="$(MicrosoftExtensionsPackagesVersion)" />
     <PackageReference Include="Microsoft.Extensions.Hosting" Version="$(MicrosoftExtensionsPackagesVersion)" />
     <PackageReference Include="AspNetCore.HealthChecks.UI" Version="2.2.35" Condition="'$(HealthCheck)' == 'true'" />
-    <PackageReference Include="Ply" Version="0.3.1" />
     <PackageReference Include="System.Data.SqlClient" Version="4.8.2" Condition="'$(HealthCheck)' == 'true'" />
     <PackageReference Include="Microsoft.Data.SqlClient" Version="2.1.0" Condition="'$(HealthCheck)' == 'true'" />
     <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.10.9" />
@@ -58,17 +59,14 @@
     <PackageReference Include="OpenTracing.Contrib.NetCore" Version="$(OpenTracingContribPackageVersion)" Condition="'$(OpenTracing)' == 'true'" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="NBB.Application.Mediator.FSharp" Version="$(NBBPackagesVersion)" />
-    <PackageReference Include="NBB.Core.Effects" Version="$(NBBPackagesVersion)" />
-    <PackageReference Include="NBB.Core.Effects.FSharp" Version="$(NBBPackagesVersion)" />
-    <PackageReference Include="NBB.Correlation" Version="$(NBBPackagesVersion)" />
-    <PackageReference Include="NBB.Correlation.Serilog" Version="$(NBBPackagesVersion)" />
-    <PackageReference Include="NBB.Messaging.Effects" Version="$(NBBPackagesVersion)" />
     <PackageReference Include="NBB.Messaging.Host" Version="$(NBBPackagesVersion)" />
     <PackageReference Include="NBB.Messaging.Nats" Version="$(NBBPackagesVersion)" Condition="'$(NatsMessagingTransport)' == 'true'" />
 	<PackageReference Include="NBB.Messaging.Rusi" Version="$(NBBPackagesVersion)" Condition="'$(RusiMessagingTransport)' == 'true'" />
+    
+    <PackageReference Include="NBB.Correlation" Version="$(NBBPackagesVersion)" />
+    <PackageReference Include="NBB.Correlation.Serilog" Version="$(NBBPackagesVersion)" />
     <PackageReference Include="NBB.Messaging.Abstractions" Version="$(NBBPackagesVersion)" />
-    <PackageReference Include="NBB.Messaging.OpenTracing" Version="$(NBBPackagesVersion)" Condition="'$(OpenTracing)' == 'true'" />
     <PackageReference Include="NBB.Tools.Serilog.OpenTracingSink" Version="$(NBBPackagesVersion)" Condition="'$(OpenTracing)' == 'true'" />
+    <PackageReference Include="NBB.Messaging.OpenTracing" Version="$(NBBPackagesVersion)" Condition="'$(OpenTracing)' == 'true'" />
   </ItemGroup>
 </Project>

@@ -34,7 +34,6 @@ namespace NBB.Worker
                 var host = BuildConsoleHost(args);
 #endif
                 Log.Information("Starting NBB.Worker");
-                Log.Information("Messaging.Env=" + Configuration.GetSection("Messaging")["Env"]);
 
                 await host.RunAsync(CancellationToken.None);
 

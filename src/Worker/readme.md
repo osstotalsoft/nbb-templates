@@ -56,15 +56,15 @@ You can enable/disable features from file `development.props`.
 
 ### Package and publish template
 - Increase version in file "NBB.WorkerNBB.Worker.nuspec"
-- Package - use nuget.exe instead of dotnet pack:
+- Package - use dotnet pack:
 ```console
   cd <Your_project_path>\src\Worker
-  nuget pack
+  dotnet pack
 ``` 
 - Publish package
 ```console
   cd <Your_project_path>\src\Worker
-  nuget push NBB.Worker.*.nupkg -source <Your_nuget_repo_url>
+  dotnet nuget push NBB.Worker.*.nupkg -source <Your_nuget_repo_url>
 ``` 
 
 ### Uninstall

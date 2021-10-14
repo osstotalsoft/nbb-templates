@@ -1,6 +1,6 @@
 # nbb templates
 
-[![Build status](https://dev.azure.com/totalsoft/NBB/_apis/build/status/NBB-templates-GitHub_master)](https://dev.azure.com/totalsoft/NBB/_build/latest?definitionId=347)
+[![CI](https://github.com/osstotalsoft/nbb-templates/actions/workflows/ci.yml/badge.svg?branch=master)](https://github.com/osstotalsoft/nbb-templates/actions/workflows/ci.yml)
 
 .Net Building Blocks templates
 

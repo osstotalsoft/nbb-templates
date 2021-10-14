@@ -1,0 +1,21 @@
+<Project Sdk="Microsoft.NET.Sdk">
+	<PropertyGroup>
+		<PackageType>Template</PackageType>
+		<PackageId>NBB.Worker</PackageId>
+		<PackageVersion>1.0.0</PackageVersion>
+		<Title>NBB Worker Service Template</Title>
+		<Description>
+		  Creates a NBB worker service app.
+		</Description>
+		<IncludeContentInPack>true</IncludeContentInPack>
+		<IncludeBuildOutput>false</IncludeBuildOutput>
+		<ContentTargetFolders>content</ContentTargetFolders>
+		<TargetFramework>net5.0</TargetFramework>
+		<NoWarn>$(NoWarn);NU5128</NoWarn>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<Content Include="templates\**\*" Exclude="templates\**\bin\**\*;templates\**\obj\**\*;" />
+		<Compile Remove="**\*" />
+	</ItemGroup>
+</Project>
