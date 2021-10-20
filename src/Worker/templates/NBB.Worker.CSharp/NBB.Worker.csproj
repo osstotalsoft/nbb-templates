@@ -61,6 +61,7 @@
   <ItemGroup>
     <PackageReference Include="NBB.Messaging.Host" Version="$(NBBPackagesVersion)" />
     <PackageReference Include="NBB.Messaging.Nats" Version="$(NBBPackagesVersion)" Condition="'$(NatsMessagingTransport)' == 'true'" />
+	<PackageReference Include="NBB.Messaging.Rusi" Version="$(NBBPackagesVersion)" Condition="'$(RusiMessagingTransport)' == 'true'" />
     
     <PackageReference Include="NBB.Correlation" Version="$(NBBPackagesVersion)" />
     <PackageReference Include="NBB.Correlation.Serilog" Version="$(NBBPackagesVersion)" />

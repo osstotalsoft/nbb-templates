@@ -2,7 +2,8 @@
   <PropertyGroup Label="Development">
     <Develop>true</Develop>
    
-    <NatsMessagingTransport>true</NatsMessagingTransport>
+    <NatsMessagingTransport>false</NatsMessagingTransport>
+	<RusiMessagingTransport>true</RusiMessagingTransport>
     <SqlLogging>false</SqlLogging>
     <HealthCheck>true</HealthCheck>
     <Resiliency>true</Resiliency>
@@ -12,6 +13,7 @@
 
     <ConditionalCompilationSymbols Condition="$(HealthCheck)">$(ConditionalCompilationSymbols);HealthCheck</ConditionalCompilationSymbols>
     <ConditionalCompilationSymbols Condition="$(NatsMessagingTransport)">$(ConditionalCompilationSymbols);NatsMessagingTransport</ConditionalCompilationSymbols>
+	<ConditionalCompilationSymbols Condition="$(RusiMessagingTransport)">$(ConditionalCompilationSymbols);RusiMessagingTransport</ConditionalCompilationSymbols>
     <ConditionalCompilationSymbols Condition="$(AspNetApp)">$(ConditionalCompilationSymbols);AspNetApp</ConditionalCompilationSymbols>
     <ConditionalCompilationSymbols Condition="$(SqlLogging)">$(ConditionalCompilationSymbols);SqlLogging</ConditionalCompilationSymbols>
     <ConditionalCompilationSymbols Condition="$(Resiliency)">$(ConditionalCompilationSymbols);Resiliency</ConditionalCompilationSymbols>

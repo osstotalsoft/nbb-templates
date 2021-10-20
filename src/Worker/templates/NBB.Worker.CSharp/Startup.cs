@@ -31,8 +31,7 @@ namespace NBB.Worker
                 // Add a health check for a SQL database
                 .AddCheck("SQL database",
                     new SqlConnectionHealthCheck("Log_Database", Configuration["ConnectionStrings:Log_Database"]))
-                .AddCheck<GCInfoHealthCheck>("GC");
-            
+                .AddCheck<GCInfoHealthCheck>("GC");            
 #endif
         }
 
